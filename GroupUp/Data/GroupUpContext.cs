@@ -60,10 +60,10 @@ namespace GroupUp.Data
                 {
                     case EntityState.Added:
                         ((IBaseModel)entry.Entity).CreatedAt = now;
-                        ((IBaseModel)entry.Entity).ModifiedAt = now;
+                        ((IBaseModel)entry.Entity).UpdatedAt = now;
                         break;
                     case EntityState.Modified:
-                        ((IBaseModel)entry.Entity).ModifiedAt = now;
+                        ((IBaseModel)entry.Entity).UpdatedAt = now;
                         break;
                 }
             }

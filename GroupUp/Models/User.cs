@@ -13,6 +13,6 @@ namespace GroupUp.Models
         public string FullName { get { return $"{FirstName} {LastName}"; } }
         public DateTime? LastSignInAt { get; set; }
         public DateTime CreatedAt { get; set; }
-        public DateTime ModifiedAt { get; set; }
+        public DateTime UpdatedAt { get; set; }
     }
 }

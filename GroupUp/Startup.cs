@@ -40,6 +40,8 @@ namespace GroupUp
             services.AddIdentity<User, Role>()
                 .AddEntityFrameworkStores<GroupUpContext>()
                 .AddDefaultTokenProviders();
+            // Set login path when reaching auth pages
+            services.ConfigureApplicationCookie(options => options.LoginPath = "/login");
             services.Configure<IdentityOptions>(options =>
             {
                 // Password settings
@@ -67,7 +69,11 @@ namespace GroupUp
             services.AddAuthentication(CookieAuthenticationDefaults.AuthenticationScheme)
                 .AddCookie();
             // Use Razor pages
-            services.AddRazorPages();
+            services.AddRazorPages(options =>
+            {
+                // Make all pages under "My" area to need auth
+                options.Conventions.AuthorizeAreaFolder("My", "/");
+            });
             // Health check
             services.AddHealthChecks();
         }
