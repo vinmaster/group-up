@@ -19,7 +19,11 @@ namespace GroupUp.Pages
 
         public void OnGet()
         {
-
+            var name = Request.Query["Name"];
+            if (!string.IsNullOrEmpty(name))
+            {
+                _logger.LogInformation($"name: {name}");
+            }
         }
     }
 }

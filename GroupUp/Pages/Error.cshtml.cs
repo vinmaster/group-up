@@ -1,5 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -14,6 +15,8 @@ namespace GroupUp.Pages
     public class ErrorModel : PageModel
     {
         public string RequestId { get; set; }
+        public int Status { get; set; }
+        public string Message { get; set; }
 
         public bool ShowRequestId => !string.IsNullOrEmpty(RequestId);
 
@@ -24,9 +27,16 @@ namespace GroupUp.Pages
             _logger = logger;
         }
 
-        public void OnGet()
+        public void OnGet(string statusStr)
         {
-            RequestId = Activity.Current?.Id ?? HttpContext.TraceIdentifier;
+            RequestId = HttpContext.TraceIdentifier;
+            int status;
+            if (int.TryParse(statusStr, out status))
+            {
+                Status = status;
+                Message = ReasonPhrases.GetReasonPhrase(Status);
+            }
+            else Status = 404;
         }
     }
 }
