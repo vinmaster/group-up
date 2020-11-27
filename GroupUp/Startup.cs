@@ -32,8 +32,9 @@ namespace GroupUp
         {
             // EF Core for ORM
             services.AddDbContext<GroupUpContext>(options =>
-                options.UseSqlite(Configuration.GetConnectionString("GroupUp"))
-            );
+            {
+                options.UseSqlite(Configuration.GetConnectionString("GroupUp"));
+            });
             // Automapper to map between DTOs
             services.AddAutoMapper(typeof(Startup));
             // Identity settings for user and roles

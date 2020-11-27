@@ -5,8 +5,9 @@
 }
 
 <div class="text-center">
-    <h1 class="display-4">Welcome</h1>
-    <p>Learn about <a href="https://docs.microsoft.com/aspnet/core">building Web apps with ASP.NET Core</a>.</p>
+    <h1 class="display-4">GroupUp</h1>
+    <p>Find your people to group up with!</p>
+    <a class="btn btn-primary" asp-area="Groups" asp-page="/New">Add new group</a>
 </div>
 <form class="form-horizontal" method="get">
     <div class="form-group">
@@ -16,3 +17,7 @@
         </div>
     </div>
 </form>
+
+<div class="container">
+    <partial name="_GroupsList" model="Model.GroupsList" />
+</div>

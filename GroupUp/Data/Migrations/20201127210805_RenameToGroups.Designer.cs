@@ -3,14 +3,16 @@ using System;
 using GroupUp.Data;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace GroupUp.Data.Migrations
 {
     [DbContext(typeof(GroupUpContext))]
-    partial class GroupUpContextModelSnapshot : ModelSnapshot
+    [Migration("20201127210805_RenameToGroups")]
+    partial class RenameToGroups
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

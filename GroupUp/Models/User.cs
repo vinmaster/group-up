@@ -14,5 +14,6 @@ namespace GroupUp.Models
         public DateTime? LastSignInAt { get; set; }
         public DateTime CreatedAt { get; set; }
         public DateTime UpdatedAt { get; set; }
+        public List<Group> Groups { get; } = new List<Group>();
     }
 }

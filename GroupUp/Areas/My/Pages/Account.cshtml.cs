@@ -89,7 +89,7 @@ namespace GroupUp.Areas.My.Pages
                 CreateMap<User, UserDTO>();
 
                 CreateMap<UserDTO, User>()
-                    .ForMember(destination => destination.Id, options => options.Ignore()); ;
+                    .ForMember(destination => destination.Id, options => options.Ignore());
             }
         }
     }

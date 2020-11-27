@@ -14,6 +14,8 @@ namespace GroupUp.Data
     {
         private readonly ILogger<GroupUpContext> _logger;
 
+        public DbSet<Group> Groups { get; set; }
+
         public GroupUpContext(
             DbContextOptions<GroupUpContext> options,
             ILogger<GroupUpContext> logger
